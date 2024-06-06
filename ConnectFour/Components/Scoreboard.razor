@@ -1,0 +1,27 @@
+@code {
+    [Parameter]
+    public int ConsecutiveWinsPlayer1 { get; set; }
+
+    [Parameter]
+    public int ConsecutiveWinsPlayer2 { get; set; }
+}
+
+<div class="scoreboard">
+    <h3>Scoreboard</h3>
+    <p>Player 1 Consecutive Wins: @ConsecutiveWinsPlayer1</p>
+    <p>Player 2 Consecutive Wins: @ConsecutiveWinsPlayer2</p>
+</div>
+
+<style>
+    .scoreboard {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        width: 200px;
+    }
+    .scoreboard h3 {
+        margin: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+</style>

@@ -1,0 +1,37 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+@using ConnectFour
+
+@code {
+    private GameState gameState = new GameState();
+
+    // Initialize gameState or get it from a service if it's shared
+    // Example initialization for demonstration purposes
+    protected override void OnInitialized()
+    {
+        gameState = new GameState();
+        // Initialize the game state or load it from a service
+    }
+
+    private void OnWin()
+    {
+        var winState = gameState.CheckForWin();
+        // Handle the win state
+    }
+}
+
+<h3>Home Page</h3>
+
+<!-- Include the Scoreboard component and bind the properties -->
+<Scoreboard ConsecutiveWinsPlayer1="gameState.ConsecutiveWinsPlayer1" ConsecutiveWinsPlayer2="gameState.ConsecutiveWinsPlayer2" />
+
+<!-- Existing Board component -->
+<Board @rendermode="InteractiveServer"
+       BoardColor="System.Drawing.Color.Black"
+       Player1Color="System.Drawing.Color.Green"
+       Player2Color="System.Drawing.Color.Purple" />
+
+<!-- You can add more game related UI and logic here -->
+<button @onclick="OnWin">Check for Win</button>
